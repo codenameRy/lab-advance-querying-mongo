@@ -37,6 +37,8 @@ db.companies.find{number_of_employees: {$lt: 1000}, founded_year: {$lt: 2005}}, 
 ### 6. All the companies that don't include the `partners` field.
 
 <!-- Your Code Goes Here -->
+Main Answer
+filter --> {partners: {$size: 0}}
 <!-- db.companies.find{partners: {$size:  1}} -- Partial answer -->
 
 {partners: {$ne:[]}}
@@ -46,6 +48,9 @@ db.companies.find{partners: {$exists:true,$ne:[]}}
 
 ($or: [   {sent_at: {$exists: false}},   {sent_at: null} ])
 ($or: [{partners: {$exists: false, partners: null}}])
+
+Include all the partner fields
+{$or: [ {partners: {$size: 1}}, {partners: {$size: 2}}, {partners: {$size: 3}} ] }
 
 ### 7. All the companies that have a null type of value on the `category_code` field.
 
