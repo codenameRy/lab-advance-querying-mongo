@@ -66,6 +66,7 @@ db.companies.find{number_of_employees: {$gte: 100, $lt: 1000}}, {name: 1, number
 
 <!-- Your Code Goes Here -->
 db.companies.find --> sort
+{"ipo.valuation_amount": {$exists: true, $ne: null}}
 {"ipo.valuation_amount": -1}
 
 ### 10. Retrieve the 10 companies with most employees, order by the `number of employees`
@@ -130,7 +131,7 @@ project --> {"acquisition.price_amount": 1, "acquisition.price_currency_code": 1
 <!-- Your Code Goes Here -->
 filter --> {"acquisition.acquired_month": {$gte: 1, $lte: 3}}
 project --> {name: 1, acquisition: 1}
-limit --> 10
+limit --> 10 
 
 ### 19. All the companies that have been founded between 2000 and 2010, but have not been acquired before 2011.
 
